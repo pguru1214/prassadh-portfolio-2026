@@ -10,12 +10,12 @@ jobs:
   import:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Import portfolio files
         shell: bash
         run: |
-          curl --fail --location --retry 3 "https://prassadh-portfolio-2026.netlify.app/portfolio-source.tar.gz" -o /tmp/portfolio-source.tar.gz
-          tar -xzf /tmp/portfolio-source.tar.gz
+          curl --fail --location --retry 3 "https://prassadh-portfolio-2026.netlify.app/portfolio-source.txt" -o /tmp/portfolio-source.txt
+          base64 --decode /tmp/portfolio-source.txt | tar -xz
           rm -f .github/workflows/import.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
