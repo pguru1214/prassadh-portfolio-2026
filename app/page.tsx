@@ -27,9 +27,23 @@ const projects = [
     tags: ["Product UX", "React", "Redux", "AI interaction", "Design system"],
     result: "In-workflow answers with clear confidence, sources and escalation",
     accent: "blue",
+    preview: "assistant" as const,
+    route: "/work/askrocky",
   },
   {
     index: "02",
+    title: "PulseIQ AI Operations",
+    eyebrow: "AI analytics · Enterprise operations",
+    description:
+      "A unified operations workspace for monitoring AskRocky conversations, quality signals, unresolved questions and governed knowledge across enterprise products.",
+    tags: ["Analytics UX", "React", "Data visualization", "Knowledge governance"],
+    result: "One clear view of chatbot health, conversation evidence and content readiness",
+    accent: "pulse",
+    preview: "pulseiq" as const,
+    route: "/work/pulseiq",
+  },
+  {
+    index: "03",
     title: "Ethiqly Learning Platform",
     eyebrow: "EdTech · Classroom experience",
     description:
@@ -37,9 +51,11 @@ const projects = [
     tags: ["Responsive UI", "Figma", "WCAG accessibility", "Reusable components"],
     result: "A consistent, inclusive experience across core educator workflows",
     accent: "coral",
+    preview: "learning" as const,
+    route: "/work/ethiqly",
   },
   {
-    index: "03",
+    index: "04",
     title: "Banking Forms Platform",
     eyebrow: "FinTech · Workflow modernization",
     description:
@@ -47,6 +63,8 @@ const projects = [
     tags: ["User flows", "Angular Material", "Validation UX", "UI leadership"],
     result: "Reusable patterns for complex, high-intent applications",
     accent: "lime",
+    preview: "banking" as const,
+    route: null,
   },
 ];
 
@@ -57,7 +75,7 @@ const tools = [
   "MongoDB Atlas", "Prototypes", "User flows",
 ];
 
-function ProductPreview({ type }: { type: "assistant" | "learning" | "banking" }) {
+function ProductPreview({ type }: { type: "assistant" | "pulseiq" | "learning" | "banking" }) {
   if (type === "assistant") {
     return (
       <div className="preview-window assistant-preview" aria-hidden="true">
@@ -74,6 +92,18 @@ function ProductPreview({ type }: { type: "assistant" | "learning" | "banking" }
             <div className="chat-bubble">How do I correct a missed deduction?</div>
             <div className="ai-answer"><b><Sparkles size={13} /> Answer</b><span /><span /><span className="short" /></div>
           </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === "pulseiq") {
+    return (
+      <div className="preview-window pulse-preview" aria-hidden="true">
+        <div className="window-bar"><i /><i /><i /><span>PulseIQ · AI operations</span></div>
+        <div className="pulse-preview-canvas">
+          <img src="/case-study/pulseiq/dashboard.png" alt="" />
+          <div className="pulse-preview-note"><small>LIVE SIGNALS</small><b>Chat quality at a glance</b></div>
         </div>
       </div>
     );
@@ -133,7 +163,7 @@ export default function Home() {
 
         <div className="hero-canvas reveal delay-1" aria-label="A collection of interface design artifacts">
           <div className="orbit orbit-one" /><div className="orbit orbit-two" />
-          <div className="canvas-label"><span>SELECTED PROJECTS</span><b>03 CASE STUDIES</b></div>
+          <div className="canvas-label"><span>SELECTED PROJECTS</span><b>04 CASE STUDIES</b></div>
           <div className="floating-card flow-card"><small>USER FLOW</small><div className="flow-row"><i /><span /><i /><span /><i /></div><b>From question to<br />confident answer</b></div>
           <div className="floating-card component-card"><small>COMPONENT</small><div className="toggle-row"><span>Confidence</span><i><b /></i></div><div className="color-row"><i /><i /><i /><i /></div></div>
           <div className="floating-card prototype-card"><div className="phone-head"><span /><i /></div><small>GOOD MORNING</small><h3>What can I help<br />you find?</h3><div className="fake-input">Ask a question <Sparkles size={14} /></div><div className="waveform"><i /><i /><i /><i /><i /><i /><i /></div></div>
@@ -141,8 +171,9 @@ export default function Home() {
           <div className="canvas-footer"><span>Figma</span><span>React</span><span>Tailwind</span></div>
           <div className="canvas-project-nav" aria-label="Jump to a selected project">
             <a href="#project-01"><b>01</b><span>AskRocky</span></a>
-            <a href="#project-02"><b>02</b><span>Ethiqly</span></a>
-            <a href="#project-03"><b>03</b><span>Banking</span></a>
+            <a href="#project-02"><b>02</b><span>PulseIQ</span></a>
+            <a href="#project-03"><b>03</b><span>Ethiqly</span></a>
+            <a href="#project-04"><b>04</b><span>Banking</span></a>
           </div>
         </div>
       </section>
@@ -163,10 +194,10 @@ export default function Home() {
       <section className="work" id="work">
         <div className="section-shell work-heading"><div><p className="eyebrow light"><span /> Selected work</p><h2>Complex products,<br /><em>made effortless.</em></h2></div><p>A selection of enterprise products where research, interaction design and front-end craft work as one.</p></div>
         <div className="project-list section-shell">
-          {projects.map((project, i) => (
+          {projects.map((project) => (
             <article className={`project-card ${project.accent}`} id={`project-${project.index}`} key={project.title}>
-              <div className="project-copy"><div className="project-number">{project.index}</div><p className="project-eyebrow">{project.eyebrow}</p><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="project-result"><Check size={16} /><span>{project.result}</span></div>{i < 2 ? <a className="project-case-trigger" href={i === 0 ? "/work/askrocky" : "/work/ethiqly"} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} case study in a new page`}>View case study <ArrowUpRight size={17} /></a> : <a href="#contact" aria-label={`Discuss ${project.title}`}>Discuss this project <ArrowUpRight size={17} /></a>}</div>
-              <div className="project-visual"><ProductPreview type={i === 0 ? "assistant" : i === 1 ? "learning" : "banking"} /></div>
+              <div className="project-copy"><div className="project-number">{project.index}</div><p className="project-eyebrow">{project.eyebrow}</p><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div><div className="project-result"><Check size={16} /><span>{project.result}</span></div>{project.route ? <a className="project-case-trigger" href={project.route} target="_blank" rel="noreferrer" aria-label={`Open ${project.title} case study in a new page`}>View case study <ArrowUpRight size={17} /></a> : <a href="#contact" aria-label={`Discuss ${project.title}`}>Discuss this project <ArrowUpRight size={17} /></a>}</div>
+              <div className="project-visual"><ProductPreview type={project.preview} /></div>
             </article>
           ))}
         </div>
