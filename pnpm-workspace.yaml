@@ -1,5 +1,8 @@
 # Copied Sites are standalone projects and cannot inherit the monorepo policy.
 minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - framer-motion@14.14.0
+  - motion-dom@14.14.0
 minimumReleaseAgeIgnoreMissingTime: false
 trustLockfile: false
 strictDepBuilds: true
