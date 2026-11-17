@@ -205,3 +205,47 @@
 .canvas-project-nav{left:22px;right:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
 .canvas-project-nav a{min-width:0;justify-content:center;padding:9px 6px;gap:6px}
 @media(max-width:680px){.hero-meta{gap:14px}.hero-meta strong,.hero-meta>div:last-child strong{font-size:clamp(1.05rem,4.6vw,1.4rem)}.hero-meta span{font-size:.68rem}.hero-meta span br{display:initial}.canvas-project-nav{left:14px;right:14px}}
+
+/* Compact editorial project rows. */
+.work{padding-block:58px}
+.project-list{grid-template-columns:1fr;margin-top:28px;gap:12px}
+.project-list .project-card{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:stretch;border-radius:16px;transition:transform .22s,box-shadow .22s,border-color .22s}
+.project-list .project-visual{order:0;padding:18px 14px;border-bottom:0;border-right:1px solid #00000006;display:grid;align-content:center}
+.project-list .project-copy{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:22px;row-gap:7px;padding:18px 24px;align-content:center;align-items:center}
+.project-list .project-number{display:none}
+.project-list .project-eyebrow{grid-column:1;margin:0!important;font-size:.58rem!important}
+.project-list .project-copy h3{grid-column:1;margin:0;font-size:1.45rem;line-height:1.2}
+.project-list .project-copy>p:not(.project-eyebrow){grid-column:1;margin:0;font-size:.77rem;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:680px}
+.project-list .tag-list{grid-column:1;gap:5px;margin:3px 0 0}
+.project-list .tag-list span{font-size:.56rem;padding:2px 7px}
+.project-list .tag-list span:nth-child(n+5){display:none}
+.project-list .project-copy>a.project-case-trigger{grid-column:2;grid-row:1/5;margin:0;white-space:nowrap;min-height:36px;align-self:center}
+.project-list .project-result{display:none}
+.project-list .project-card:hover{transform:translateX(4px);box-shadow:0 8px 22px #3d302a0b}
+.project-list .project-card:focus-within{border-color:#9c734c;box-shadow:0 0 0 2px #9c734c22}
+.project-list .preview-window{transform:rotate(0);box-shadow:0 6px 13px #27302a12}
+@media(min-width:681px) and (max-width:980px){.project-list{grid-template-columns:1fr;gap:12px}.project-list .project-card{grid-template-columns:190px minmax(0,1fr)}.project-list .project-copy{padding:16px 18px;column-gap:12px}.project-list .project-copy h3{font-size:1.25rem}.project-list .project-copy>a.project-case-trigger{font-size:.66rem;padding:7px 9px}}
+@media(max-width:680px){.work{padding-block:44px}.project-list{grid-template-columns:1fr;gap:12px}.project-list .project-card{grid-template-columns:105px minmax(0,1fr);border-radius:13px}.project-list .project-visual{padding:10px 7px;overflow:hidden}.project-list .project-copy{grid-template-columns:minmax(0,1fr);padding:14px;gap:6px}.project-list .project-eyebrow{font-size:.48rem!important;letter-spacing:.06em}.project-list .project-copy h3{font-size:1.12rem}.project-list .project-copy>p:not(.project-eyebrow){font-size:.7rem;line-height:1.5;-webkit-line-clamp:2}.project-list .tag-list{display:none}.project-list .project-copy>a.project-case-trigger{grid-column:1;grid-row:auto;justify-self:start;min-height:29px;margin-top:2px;padding:4px 8px;font-size:.64rem}.project-list .project-copy>a.project-case-trigger svg{width:13px;height:13px}.project-list .project-card:hover{transform:translateY(-2px)}}
+@media(prefers-reduced-motion:reduce){.project-list .project-card,.project-list .preview-window{transition:none}.project-list .project-card:hover{transform:none}}
+.project-list .project-card>.project-visual{grid-column:1;grid-row:1}
+.project-list .project-card>.project-copy{grid-column:2;grid-row:1}
+
+/* Dense project gallery: six projects in two compact desktop rows. */
+.work{padding-block:48px}
+.work-heading h2{font-size:clamp(2rem,3.5vw,3rem)}
+.project-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.project-list .project-card{display:flex;flex-direction:column;border-radius:14px;min-width:0;transition:border-color .2s,box-shadow .2s}
+.project-list .project-card:hover{transform:none;box-shadow:0 10px 25px #3d302a12}
+.project-list .project-card>.project-visual{order:-1;display:grid;grid-column:auto;grid-row:auto;padding:10px 14px;height:108px;min-height:0;overflow:hidden;border:0;border-bottom:1px solid #00000006;place-items:center}
+.project-list .project-preview-fit{width:min(100%,178px)}
+.project-list .project-card>.project-copy{display:flex;flex-direction:column;grid-column:auto;grid-row:auto;align-items:flex-start;justify-content:flex-start;gap:0;padding:14px 16px;min-height:0}
+.project-list .project-eyebrow{font-size:.48rem!important;letter-spacing:.06em;margin:0 0 6px!important;line-height:1.4}
+.project-list .project-copy h3{font-size:1.15rem;line-height:1.2;margin:0 0 7px;letter-spacing:-.025em}
+.project-list .project-copy>p:not(.project-eyebrow){font-size:.71rem;line-height:1.55;-webkit-line-clamp:2;margin:0}
+.project-list .tag-list,.project-list .project-result,.project-list .project-number{display:none}
+.project-list .project-copy>a.project-case-trigger{margin:11px 0 0;padding:0;min-height:24px;border:0;background:transparent;color:#795331;font-size:.67rem;border-radius:3px;align-self:flex-start;gap:6px}
+.project-list .project-copy>a.project-case-trigger:hover{background:transparent;color:#2e2119;transform:none}
+.project-list .project-case-trigger svg{width:13px;height:13px}
+@media(min-width:681px) and (max-width:980px){.project-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.work{padding-block:36px}.project-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.project-list .project-card>.project-visual{height:82px;padding:8px}.project-list .project-preview-fit{max-width:132px}.project-list .project-card>.project-copy{padding:12px}.project-list .project-copy h3{font-size:1rem}.project-list .project-eyebrow{font-size:.43rem!important}.project-list .project-copy>p:not(.project-eyebrow){font-size:.66rem}.project-list .project-copy>a.project-case-trigger{font-size:.61rem}}
+@media(max-width:360px){.project-list{grid-template-columns:1fr}}

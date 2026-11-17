@@ -1,3 +1,4 @@
+import { MotionProjectCard } from "../components/motion-project-card";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -207,10 +208,10 @@ export default function Home() {
         <div className="section-shell work-heading"><div><p className="eyebrow light"><span /> Selected work</p><h2>AI systems,<br /><em>built into products.</em></h2></div><p>Hands-on AI and full stack projects, alongside enterprise experience in embedded assistants, analytics and accessible interfaces.</p></div>
         <div className="project-list section-shell">
           {projects.map((project) => (
-            <article className={`project-card ${project.accent}`} id={`project-${project.index}`} key={project.title}>
+            <MotionProjectCard index={Number(project.index) - 1} className={`project-card ${project.accent}`} id={`project-${project.index}`} key={project.title}>
               <div className="project-copy"><div className="project-number">{project.index}</div><p className="project-eyebrow">{project.eyebrow}</p><h3>{project.title}</h3><p>{project.description}</p><div className="tag-list">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>{project.route ? <a className="project-case-trigger" href={project.route} aria-label={`View the ${project.title} case study`}>View case study <ArrowUpRight size={17} /></a> : <a className="project-case-trigger" href="#contact" aria-label={`Discuss ${project.title}`}>Discuss this project <ArrowUpRight size={17} /></a>}<div className="project-result"><Check size={16} /><span>{project.result}</span></div></div>
               <div className="project-visual"><div className="project-preview-fit"><div className="project-preview-scale"><ProductPreview type={project.preview} /></div></div></div>
-            </article>
+            </MotionProjectCard>
           ))}
         </div>
       </section>
