@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Guru Prasad — Product Designer & UI Engineer",
-  description: "Product portfolio of Guru Prasad, a UI/UX designer and front-end engineer with 6.3 years of experience.",
+  title: "Guru Prasad | AI Engineer & AI Full Stack Engineer",
+  description: "Guru Prasad builds AI applications with Python, FastAPI, React, Gemini and LangGraph. Explore CrimeBase, TripWeave and enterprise projects.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
